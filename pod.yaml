@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apache-pod
+  namespace: apache-namespace
+spec:
+  containers:
+  - name: apache-container
+    image: httpd:latest
+    ports:
+    - containerPort: 80
