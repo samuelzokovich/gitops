@@ -1,13 +1,17 @@
-apiVersion: route.openshift.io/v1
-kind: Route
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: apache-route
+  name: apache-ingress
   namespace: apache-namespace
 spec:
-  to:
-    kind: Service
-    name: apache-service
-    weight: 100
-  port:
-    targetPort: 8080
-  wildcardPolicy: None
+  rules:
+  - host: apache-local.com  # Set your desired hostname
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: apache-service
+            port:
+              number: 8080
