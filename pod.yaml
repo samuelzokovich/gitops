@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: apache-pod
-  namespace: apache-namespace
+  namespace: pathashala
 spec:
   containers:
   - name: apache-container

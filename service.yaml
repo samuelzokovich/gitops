@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: apache-service
-  namespace: apache-namespace
+  name: apache
+  namespace: pathashala
 spec:
   selector:
     app: apache
@@ -10,4 +10,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP
+      nodePort: 30000
+  type: NodePort
